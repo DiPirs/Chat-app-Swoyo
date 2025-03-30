@@ -1,0 +1,30 @@
+.main__createUser {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color-white);
+  gap: 10px;
+}
+
+.createUser__input {
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--color-white);
+  height: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color-blue)
+}
+
+.createUser__button {
+  border: none;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: var(--color-white);
+  color: var(--color-blue);
+  cursor: pointer;
+}
+

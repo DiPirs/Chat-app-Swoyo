@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-blue : #2d3970;
+  --color-white : #eeeeeb;
+  --color-brown : #b4a076;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--color-blue);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  color: var(--color-white);
+  text-align: center;
+  margin: 5px 5px;
+}
+
+.header__title {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.hr {
+  border: 1px solid var(--color-brown);
+}
+
+.section__main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 5px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.footer__copywriting {
+  margin: 10px;
+}
+
+.copywritting-text {
+  color: var(--color-white);
+}

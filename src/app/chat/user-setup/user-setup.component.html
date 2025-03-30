@@ -1,0 +1,15 @@
+<div class="main__createUser">
+  <h1 class="createUser__title">Здравствуйте! Вы тут впервые, как вас зовут?</h1>
+  <input 
+    class="createUser__input" 
+    placeholder="Ваше имя или никнейм" 
+    [(ngModel)]="username" 
+    (keyup.enter)="saveUsername()" 
+  />
+  <button
+    class="createUser__button button-next"
+    (click)="saveUsername()"
+  >
+    Авторизоваться
+  </button>
+</div>
