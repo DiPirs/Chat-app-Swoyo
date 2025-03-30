@@ -1,0 +1,18 @@
+.chat__logs_container {
+  background-color: var(--color-white);
+  padding: 10px;
+  border-radius: 10px;
+  color: var(--color-blue);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.message__container {
+  display: flex;
+  gap: 10px;
+}
+
+.container__userMessage {
+  color: var(--color-darkBlue);
+  font-weight: 400;
+}

@@ -1,0 +1,6 @@
+.main__chat {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 90vw;
+}

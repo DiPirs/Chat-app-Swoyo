@@ -1,0 +1,25 @@
+.chat__enter_container {
+  display: flex;
+  justify-content: center;
+}
+
+.enter_container__input {
+  flex-grow: 1;
+  border: none;
+  border-radius: 10px 0 0 10px;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.enter_container__button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  background-color: var(--color-darkBlue);
+  border-radius: 0 10px 10px 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--color-white);
+  cursor: pointer;
+}

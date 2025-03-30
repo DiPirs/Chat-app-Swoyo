@@ -1,7 +1,7 @@
 :root {
   --color-blue : #2d3970;
+  --color-darkBlue : #1e2750;
   --color-white : #eeeeeb;
-  --color-brown : #b4a076;
 }
 
 * {
@@ -18,7 +18,7 @@ body {
 .header {
   color: var(--color-white);
   text-align: center;
-  margin: 5px 5px;
+  margin: 5px 0;
 }
 
 .header__title {
@@ -27,7 +27,7 @@ body {
 }
 
 .hr {
-  border: 1px solid var(--color-brown);
+  border: 1px solid var(--color-darkBlue);
 }
 
 .section__main {

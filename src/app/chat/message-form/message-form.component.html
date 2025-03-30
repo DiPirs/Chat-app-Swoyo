@@ -1,1 +1,15 @@
-<p>message-form works!</p>
+<div class="chat__enter_container">
+  <input 
+    class="enter_container__input"
+    placeholder="Введите сообщение..."
+    [(ngModel)]="text"
+    (keyup.enter)="sendMessage()" 
+  />
+  <button 
+    class="enter_container__button button-push"
+    (click)="sendMessage()" 
+  >
+  Отправить
+  <img src="/assets/icons/enter.svg" alt="Отправить сообщение" height="18" width="18">
+  </button>
+</div>
