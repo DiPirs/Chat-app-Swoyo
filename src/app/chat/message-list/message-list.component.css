@@ -1,3 +1,15 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .chat__logs_container {
   background-color: var(--color-white);
   padding: 10px;
@@ -10,9 +22,40 @@
 .message__container {
   display: flex;
   gap: 10px;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 .container__userMessage {
   color: var(--color-darkBlue);
   font-weight: 400;
+}
+
+.message__container.mine {
+  justify-self: end;
+  color: var(--color-mineUser);
+}
+
+.mine .container__userMessage {
+  order: 1;
+}
+.mine .container__userName {
+  order: 2;
+}
+.mine .container__userMessageDate {
+  order: 3;
+}
+
+.message__container.other {
+  align-self: flex-start;
+  color: var(--color-otherUser);
+}
+
+.other .container__userMessageDate {
+  order: 1;
+}
+.other .container__userName {
+  order: 2;
+}
+.other .container__userMessage {
+  order: 3;
 }

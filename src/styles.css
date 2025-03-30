@@ -2,6 +2,8 @@
   --color-blue : #2d3970;
   --color-darkBlue : #1e2750;
   --color-white : #eeeeeb;
+  --color-mineUser : #1e2750;
+  --color-otherUser : #2e4091;
 }
 
 * {

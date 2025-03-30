@@ -9,6 +9,8 @@
   border-radius: 10px 0 0 10px;
   font-size: 18px;
   padding: 10px;
+  background-color: var(--color-white);
+  color: var(--color-blue);
 }
 
 .enter_container__button {
