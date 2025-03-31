@@ -55,4 +55,8 @@ export class ChatService {
 
     this.broadcastChannel.postMessage(message);
   }
+
+  resetMessages() {
+    this.messagesSubject.next([]);
+  }
 }

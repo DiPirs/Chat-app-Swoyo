@@ -15,7 +15,7 @@ export class MessageFormComponent {
   text = '';
   username = localStorage.getItem('username') || 'Anonymous';
 
-  @ViewChild('messageInput') messageInput!: ElementRef<HTMLTextAreaElement>; // Получаем ссылку на <textarea>
+  @ViewChild('messageInput') messageInput!: ElementRef<HTMLTextAreaElement>;
 
   constructor(
     private chatService: ChatService,
