@@ -1,15 +1,16 @@
 <div class="main__createUser">
   <h1 class="createUser__title">Здравствуйте! Вы тут впервые, как вас зовут?</h1>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
   <input 
-    class="createUser__input" 
-    placeholder="Ваше имя или никнейм" 
-    [(ngModel)]="username" 
-    (keyup.enter)="saveUsername()" 
+  class="createUser__input" 
+  placeholder="Ваше имя или никнейм" 
+  [(ngModel)]="username"
+  (keyup.enter)="saveUsername()" 
+  (input)="onInput($event)" 
   />
-  <button
-    class="createUser__button button-next"
-    (click)="saveUsername()"
-  >
+  <button class="createUser__button button-next" (click)="saveUsername()">
     Авторизоваться
   </button>
 </div>

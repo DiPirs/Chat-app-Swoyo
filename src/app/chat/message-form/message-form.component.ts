@@ -19,8 +19,8 @@ export class MessageFormComponent {
 
   constructor(
     private chatService: ChatService,
-    private ngZone: NgZone, // Внедряем NgZone
-    private cdr: ChangeDetectorRef // Внедряем ChangeDetectorRef
+    private ngZone: NgZone,
+    private cdr: ChangeDetectorRef
   ) {}
 
   sendMessage() {
@@ -31,12 +31,10 @@ export class MessageFormComponent {
         timestamp: new Date(),
       };
       this.chatService.addMessage(message);
-      this.text = ''; // Очищаем поле после отправки
+      this.text = '';
 
-      // Принудительно обновляем интерфейс
       this.cdr.detectChanges();
 
-      // Вызываем adjustHeight через setTimeout
       this.ngZone.run(() => {
         setTimeout(() => {
           this.adjustHeight();
@@ -47,7 +45,7 @@ export class MessageFormComponent {
 
   adjustHeight() {
     const textarea = this.messageInput.nativeElement;
-    textarea.style.height = 'auto'; // Сбрасываем высоту
-    textarea.style.height = `${textarea.scrollHeight}px`; // Устанавливаем новую высоту
+    textarea.style.height = 'auto';
+    textarea.style.height = `${textarea.scrollHeight}px`;
   }
 }

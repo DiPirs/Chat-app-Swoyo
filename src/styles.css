@@ -2,6 +2,7 @@
   --color-blue : #2d3970;
   --color-darkBlue : #1e2750;
   --color-white : #eeeeeb;
+  --color-lightBlue : #2e4091;
   --color-mineUser : #2e4091;
   --color-otherUser : #1e2750;
 }
@@ -15,6 +16,12 @@ body {
   margin: 0;
   background-color: var(--color-blue);
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page__container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .header {
@@ -37,7 +44,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px 5px;
+  flex: 1;
+  overflow-y: auto;
 }
 
 .footer__copywriting {

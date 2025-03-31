@@ -15,6 +15,4 @@ import { MessageFormComponent } from './message-form/message-form.component';
   ],
   styleUrl: './chat.component.css'
 })
-export class ChatComponent {
-
-}
+export class ChatComponent {}

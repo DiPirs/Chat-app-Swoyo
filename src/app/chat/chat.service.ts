@@ -9,6 +9,22 @@ export class ChatService {
   messages$ = this.messagesSubject.asObservable();
   broadcastChannel = new BroadcastChannel('chat');
 
+  private removeMessageOverflow(updatedMessages: any) {
+    if (updatedMessages.length > 50) {
+      return updatedMessages.shift();
+    }
+  }
+
+  private addMessageToStream(message: any) {
+    const currentMessages = this.messagesSubject.value;
+    const updatedMessages = [...currentMessages, message];
+
+    this.removeMessageOverflow(updatedMessages);
+
+    this.messagesSubject.next(updatedMessages);
+    localStorage.setItem('messages', JSON.stringify(updatedMessages));
+  }
+
   constructor() {
     this.broadcastChannel.onmessage = (event) => {
       const message = event.data;
@@ -27,12 +43,6 @@ export class ChatService {
     this.messagesSubject.next(savedMessages);
   }
 
-  private removeMessageOverflow(updatedMessages: any) {
-    if (updatedMessages.length > 50) {
-      return updatedMessages.shift();
-    }
-  }
-
   addMessage(message: any) {
     const currentMessages = this.messagesSubject.value;
 
@@ -44,15 +54,5 @@ export class ChatService {
     localStorage.setItem('messages', JSON.stringify(updatedMessages));
 
     this.broadcastChannel.postMessage(message);
-  }
-
-  private addMessageToStream(message: any) {
-    const currentMessages = this.messagesSubject.value;
-    const updatedMessages = [...currentMessages, message];
-
-    this.removeMessageOverflow(updatedMessages);
-
-    this.messagesSubject.next(updatedMessages);
-    localStorage.setItem('messages', JSON.stringify(updatedMessages));
   }
 }

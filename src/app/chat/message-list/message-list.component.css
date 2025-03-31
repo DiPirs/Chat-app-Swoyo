@@ -23,6 +23,14 @@
   scrollbar-color: var(--color-blue) var(--color-white);
 }
 
+.empty-message {
+  text-align: center;
+  font-size: 18px;
+  color: #888;
+  margin: auto;
+  opacity: 0.8;
+}
+
 .message__container {
   max-width: 50%;
   margin: 10px;

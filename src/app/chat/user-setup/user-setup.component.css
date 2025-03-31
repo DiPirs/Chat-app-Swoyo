@@ -28,3 +28,14 @@
   cursor: pointer;
 }
 
+.createUser__button:hover{
+  background-color: var(--color-lightBlue);
+  color: var(--color-white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 5px;
+}

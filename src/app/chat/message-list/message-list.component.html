@@ -1,5 +1,8 @@
 <div class="chat__logs_container"
   #logsContainer>
+  <div class="empty-message" *ngIf="messages.length === 0">
+    Сообщений пока нет. Начните разговор!
+  </div>
   <div 
     class="message__container"
     *ngFor="let message of messages" 
