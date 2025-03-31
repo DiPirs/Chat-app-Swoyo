@@ -30,24 +30,19 @@ body {
 
 .hr {
   border: 1px solid var(--color-darkBlue);
+  margin: 0;
 }
 
 .section__main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 50px 5px;
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  margin: 30px 5px;
 }
 
 .footer__copywriting {
-  margin: 10px;
+  margin: 5px;
+  padding: 5px;
 }
 
 .copywritting-text {
