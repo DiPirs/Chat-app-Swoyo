@@ -14,7 +14,7 @@ export class MessageListComponent implements OnInit {
   messages: any[] = [];
   username = localStorage.getItem('username') || 'Anonymous';
 
-  @ViewChild('logsContainer') logsContainer!: ElementRef; // Ссылка на контейнер
+  @ViewChild('logsContainer') logsContainer!: ElementRef;
 
   constructor(
     private chatService: ChatService,
@@ -23,11 +23,9 @@ export class MessageListComponent implements OnInit {
 
   ngOnInit() {
     this.chatService.messages$.subscribe((messages) => {
-      console.log('Получен массив сообщений:', messages);
-
       this.ngZone.run(() => {
         this.messages = Array.isArray(messages) ? messages : [];
-        this.scrollToBottom(); // Прокручиваем вниз при получении новых сообщений
+        this.scrollToBottom();
       });
     });
   }
@@ -35,7 +33,7 @@ export class MessageListComponent implements OnInit {
   scrollToBottom() {
     setTimeout(() => {
       const container = this.logsContainer.nativeElement;
-      container.scrollTop = container.scrollHeight; // Прокручиваем вниз
+      container.scrollTop = container.scrollHeight; 
     }, 0);
   }
 }

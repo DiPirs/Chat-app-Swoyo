@@ -1,10 +1,15 @@
-<div class="chat__logs_container">
+<div class="chat__logs_container"
+  #logsContainer>
   <div 
     class="message__container"
     *ngFor="let message of messages" 
     [ngClass]="{ 'mine': message.author === username, 'other': message.author !== username }">
-    <div class="container__userMessageDate">[ {{ message.timestamp | date:'short' }} ]</div>
-    <div class="container__userName">{{ message.author }}</div>
-    <div class="container__userMessage">{{ message.text }}</div>
+    <div class="container__wrapper">
+      <div class="container__infoMessage">
+        <div class="container__userName">{{ message.author }}</div>
+        <div class="container__userMessageDate">{{ message.timestamp | date:'dd.MM.yy, HH:mm' }}</div>
+      </div>
+      <div class="container__userMessage">{{ message.text }}</div>
+    </div>
   </div>
 </div>
