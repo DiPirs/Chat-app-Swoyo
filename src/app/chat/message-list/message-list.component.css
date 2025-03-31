@@ -17,6 +17,10 @@
   color: var(--color-blue);
   font-size: 18px;
   font-weight: bold;
+  height: 70vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-blue) var(--color-white);
 }
 
 .message__container {

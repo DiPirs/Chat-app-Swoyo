@@ -1,23 +1,20 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs'; // Используем BehaviorSubject
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChatService {
-  private messagesSubject = new BehaviorSubject<any[]>([]); // BehaviorSubject для хранения массива сообщений
+  private messagesSubject = new BehaviorSubject<any[]>([]);
   messages$ = this.messagesSubject.asObservable();
   broadcastChannel = new BroadcastChannel('chat');
 
   constructor() {
-    // Подписываемся на сообщения из других вкладок
     this.broadcastChannel.onmessage = (event) => {
       const message = event.data;
-      console.log('Получено сообщение из другой вкладки:', message);
-      this.addMessageToStream(message); // Добавляем сообщение в поток
+      this.addMessageToStream(message);
     };
 
-    // Загружаем сообщения из localStorage при инициализации
     let savedMessages: any[] = [];
     try {
       const storedMessages = localStorage.getItem('messages');
@@ -27,46 +24,34 @@ export class ChatService {
     } catch (error) {
       console.error('Ошибка при загрузке сообщений из localStorage:', error);
     }
+    this.messagesSubject.next(savedMessages);
+  }
 
-    console.log('Загружены сообщения из localStorage:', savedMessages);
-    this.messagesSubject.next(savedMessages); // Отправляем загруженные сообщения в поток
+  private removeMessageOverflow(updatedMessages: any) {
+    if (updatedMessages.length > 50) {
+      return updatedMessages.shift();
+    }
   }
 
   addMessage(message: any) {
-    console.log('Отправлено сообщение:', message);
-
-    // Получаем текущие сообщения из потока
     const currentMessages = this.messagesSubject.value;
 
-    // Добавляем новое сообщение
     const updatedMessages = [...currentMessages, message];
 
-    // Ограничиваем количество сообщений до 50
-    if (updatedMessages.length > 50) {
-      updatedMessages.shift(); // Удаляем самое старое сообщение
-    }
+    this.removeMessageOverflow(updatedMessages);
 
-    // Обновляем поток и localStorage
     this.messagesSubject.next(updatedMessages);
     localStorage.setItem('messages', JSON.stringify(updatedMessages));
 
-    // Отправляем сообщение в другие вкладки
     this.broadcastChannel.postMessage(message);
   }
 
   private addMessageToStream(message: any) {
-    // Получаем текущие сообщения из потока
     const currentMessages = this.messagesSubject.value;
-
-    // Добавляем новое сообщение
     const updatedMessages = [...currentMessages, message];
 
-    // Ограничиваем количество сообщений до 50
-    if (updatedMessages.length > 50) {
-      updatedMessages.shift(); // Удаляем самое старое сообщение
-    }
+    this.removeMessageOverflow(updatedMessages);
 
-    // Обновляем поток и localStorage
     this.messagesSubject.next(updatedMessages);
     localStorage.setItem('messages', JSON.stringify(updatedMessages));
   }

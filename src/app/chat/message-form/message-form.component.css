@@ -11,6 +11,7 @@
   padding: 10px;
   background-color: var(--color-white);
   color: var(--color-blue);
+  outline: none;
 }
 
 .enter_container__button {

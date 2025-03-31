@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone, ViewChild, ElementRef } from '@angular/core';
 import { ChatService } from '../chat.service';
 import { CommonModule } from '@angular/common';
 
@@ -14,20 +14,28 @@ export class MessageListComponent implements OnInit {
   messages: any[] = [];
   username = localStorage.getItem('username') || 'Anonymous';
 
+  @ViewChild('logsContainer') logsContainer!: ElementRef; // Ссылка на контейнер
+
   constructor(
     private chatService: ChatService,
-    private ngZone: NgZone // Внедряем NgZone
+    private ngZone: NgZone
   ) {}
 
   ngOnInit() {
-    // Подписываемся на новые сообщения
     this.chatService.messages$.subscribe((messages) => {
       console.log('Получен массив сообщений:', messages);
 
       this.ngZone.run(() => {
-        // Обновляем массив сообщений внутри Angular-зоны
         this.messages = Array.isArray(messages) ? messages : [];
+        this.scrollToBottom(); // Прокручиваем вниз при получении новых сообщений
       });
     });
+  }
+
+  scrollToBottom() {
+    setTimeout(() => {
+      const container = this.logsContainer.nativeElement;
+      container.scrollTop = container.scrollHeight; // Прокручиваем вниз
+    }, 0);
   }
 }
