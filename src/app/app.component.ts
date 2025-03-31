@@ -1,15 +1,26 @@
 import { Component } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   standalone: false,
-  styleUrl: './app.component.css',
-  template: `
-  <div class="container">
-    <app-user-setup></app-user-setup>
-  </div>`
+  styleUrl: './app.component.css'
 })
+
 export class AppComponent {
-  title = 'chat-app';
+  currentRoute = ''
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.currentRoute = event.url;
+      }
+    });
+  }
+
+  logout() {
+    localStorage.removeItem('username');
+    this.router.navigate(['/setup']);
+  }
 }

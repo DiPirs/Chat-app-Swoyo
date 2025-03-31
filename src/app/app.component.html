@@ -1,1 +1,20 @@
-<router-outlet></router-outlet>
+<div class="page__container">
+  <header class="header" 
+    [class.header--centered]="currentRoute === '/setup'"
+    [class.header--space-between]="currentRoute === '/chat'">
+    <span class="header__title">BQChat</span>
+    <button *ngIf="currentRoute === '/chat'" class="header__logout-button" (click)="logout()">
+      Выйти из аккаунта
+    </button>
+  </header>
+  <hr class="hedaer__hrLine hr">
+  <section class="section__main">
+    <router-outlet></router-outlet>
+  </section>
+  <footer class="footer">
+    <hr class="footer__hrLine hr">
+    <div class="footer__copywriting">
+      <span class="copywritting-text">&#9400; Балясов Иван Алексеевич, 2025г</span>
+    </div>
+  </footer>
+</div>
