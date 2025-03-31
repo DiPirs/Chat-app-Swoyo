@@ -7,11 +7,16 @@
   flex-grow: 1;
   border: none;
   border-radius: 10px 0 0 10px;
+  min-height: 40px;
+  max-height: 120px;
   font-size: 18px;
   padding: 10px;
   background-color: var(--color-white);
   color: var(--color-blue);
   outline: none;
+  resize: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-blue) var(--color-white);
 }
 
 .enter_container__button {

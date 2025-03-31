@@ -1,10 +1,6 @@
 <div class="chat__enter_container">
-  <input 
-    class="enter_container__input"
-    placeholder="Введите сообщение..."
-    [(ngModel)]="text"
-    (keyup.enter)="sendMessage()" 
-  />
+  <textarea #messageInput class="enter_container__input" placeholder="Введите сообщение..." [(ngModel)]="text"
+    (input)="adjustHeight()" (keyup.enter)="sendMessage()"></textarea>
   <button 
     class="enter_container__button button-push"
     (click)="sendMessage()" 
