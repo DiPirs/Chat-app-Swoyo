@@ -11,23 +11,23 @@
 }
 
 .chat__logs_container {
-  background-color: var(--color-white);
-  padding: 10px;
-  border-radius: 10px;
-  color: var(--color-blue);
-  font-size: 18px;
-  font-weight: bold;
   height: 70vh;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--color-blue) var(--color-white);
+  background-color: var(--color-white);
+  border-radius: 10px;
+  padding: 10px;
+  color: var(--color-blue);
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .empty-message {
   text-align: center;
+  margin: auto;
   font-size: 18px;
   color: #888;
-  margin: auto;
   opacity: 0.8;
 }
 
@@ -35,8 +35,8 @@
   max-width: 50%;
   margin: 10px;
   display: flex;
-  animation: fadeIn 0.3s ease-in-out;
   align-self: flex-start;
+  animation: fadeIn 0.3s ease-in-out;
   color: var(--color-white);
 }
 
@@ -45,29 +45,54 @@
 }
 
 .message__container.mine>.container__wrapper {
+  flex-direction: row-reverse;
+}
+
+.message__container.mine>.container__wrapper>.container__content,
+.message__container.mine>.container__wrapper>.container__avatar {
   background-color: var(--color-mineUser);
 }
 
 .container__wrapper {
   max-width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.container__avatar {
+  width: 55px;
+  height: 55px;
   background-color: var(--color-otherUser);
-  border-radius: 8px;
-  padding: 12px;
+  border-radius: 50%;
+  color: var(--color-white);
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__content {
+  max-width: 92%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  border-radius: 8px;
+  padding: 12px;
+  background-color: var(--color-otherUser);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+  white-space: normal;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  white-space: normal;
 }
 
 .container__infoMessage {
   display: flex;
   gap: 10px;
   justify-content: space-between;
-}
-
-.container__userMessage {
-  font-weight: 400;
+  font-weight: bold;
 }
